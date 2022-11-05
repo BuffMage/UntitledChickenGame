@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneType: 0
-  laneWidth: 2
+  laneWidth: 4
