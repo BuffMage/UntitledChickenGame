@@ -41,9 +41,5 @@ public class DefaultLane : Lane
     }
 
 
-    public new void SpeedUpTo(float speed, float acceleration)
-    {
-        setLaneSpeed(Mathf.MoveTowards(getLaneSpeed(), speed, acceleration));
-        Invoke(nameof(SpeedUpTo), .1f);
-    }
+
 }
