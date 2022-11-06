@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 directions = Vector2.zero;
     public bool dead = false;
 
+    public float stamina = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,9 +93,11 @@ public class PlayerMovement : MonoBehaviour
             sideMovement -= Vector3.forward;
             facing = Vector3.back;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && stamina >= .35f)
         {
             //Debug.Log("Dashing");
+            stamina = Mathf.Clamp01(stamina - .35f);
+            StaminaBar.UpdateFillBar(stamina);
             dashing = true;
             dashTimer = 0f;
         }
@@ -213,5 +217,16 @@ public class PlayerMovement : MonoBehaviour
         {
             dashing = false;
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Respawn"))
+        {
+            stamina = Mathf.Clamp01(stamina + .5f);
+            StaminaBar.UpdateFillBar(stamina);
+            Destroy(other.gameObject);
+        }
+
     }
 }

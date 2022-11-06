@@ -19,6 +19,7 @@ public class DefaultCar : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * lane.getLaneSpeed() * Time.deltaTime, Space.Self);
+        if (transform.position.z > 50 || transform.position.z < -50) Destroy(this.gameObject);
     }
 
     public void SetSpeed(float speed)
