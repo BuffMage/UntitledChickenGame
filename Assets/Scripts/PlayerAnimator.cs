@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimator : MonoBehaviour
 {
@@ -137,6 +138,7 @@ public class PlayerAnimator : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > .55f)
         {
             currentAnim = "ForeverDeath";
+            Invoke("TransitionToLoss", 2.5f);
             anim.Play(currentAnim);
             return;
         }
@@ -150,5 +152,10 @@ public class PlayerAnimator : MonoBehaviour
         {
             currentAnim = "";
         }
+    }
+
+    private void TransitionToLoss()
+    {
+        SceneManager.LoadScene("Loss Screen");
     }
 }
