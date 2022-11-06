@@ -27,13 +27,23 @@ public class DefaultLane : Lane
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SpawnCar()
     {
-        GameObject newCar = Instantiate(carObject, carSpawnPoint.position, Quaternion.identity);
-        newCar.GetComponent<DefaultCar>().SetSpeed(getLaneSpeed());
+        GameObject newCar = Instantiate(carObject, carSpawnPoint.position, this.transform.rotation);
+        DefaultCar carComp = newCar.GetComponent<DefaultCar>();
+        carComp.SetSpeed(getLaneSpeed());
+        carComp.transform.SetParent(this.gameObject.transform);
         Invoke("SpawnCar", Random.Range(spawnRateRange.x, spawnRateRange.y));
+        carComp.SetLane(this);
+    }
+
+
+    public new void SpeedUpTo(float speed, float acceleration)
+    {
+        setLaneSpeed(Mathf.MoveTowards(getLaneSpeed(), speed, acceleration));
+        Invoke(nameof(SpeedUpTo), .1f);
     }
 }
