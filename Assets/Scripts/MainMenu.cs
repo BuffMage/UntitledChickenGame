@@ -7,12 +7,12 @@ public class MainMenu : MonoBehaviour
 {
    public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("James Scene");
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("James Scene");
     }
 
     public void QuitGame()
