@@ -133,7 +133,7 @@ public class TimeLordManager : MonoBehaviour
         if (selectedLane != -1)
         {
             selectedLaneSpeed -= deceleration * Time.deltaTime;
-            selectedLaneSpeed = Mathf.Clamp(selectedLaneSpeed, 0, originalSpeed);
+            selectedLaneSpeed = Mathf.Clamp(selectedLaneSpeed, -originalSpeed, originalSpeed);
             LaneManager.SetLandSpeed(selectedLane, selectedLaneSpeed);
         }
     }
