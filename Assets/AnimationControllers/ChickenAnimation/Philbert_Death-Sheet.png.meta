@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b01042eea5515df4da4c705520c68d85
+guid: fb2a25dd6c6ce1348adbdc042e5aa92f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,185 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_0
+      name: Philbert_Death-Sheet_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 24
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd74890ac4143e5458ec011233be5a41
-      internalID: -1474477255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 0
-        width: 29
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e47adad484538f54087eeb1da03efd9e
-      internalID: 1438388964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 429f02b652b1845489105b53fc0e4c31
-      internalID: -298715474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 1
-        width: 23
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3be3ce6700f032e4e9e3d98bdc48fd0f
-      internalID: 871074940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 7
-        width: 20
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d37cf48778d730d41be423fcd1dc2fec
-      internalID: 1494735958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 44
-        width: 31
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 109d42b19807a9344af699ad73633551
-      internalID: -1886619545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 13
-        width: 21
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce6f3652ba378bf41835761425f1fb5b
-      internalID: -786648528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 2
-        width: 28
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33929b51217b5e64796d94156027594d
-      internalID: -1312768168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Philbert_Back_Jump-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 256
+        x: 0
         y: 0
         width: 32
-        height: 17
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +130,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e247c1419ec99534d861de8816c9f9ab
-      internalID: 507501511
+      spriteID: 44fa9cff20bf9a74293e039f30214f03
+      internalID: 1769354111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Philbert_Death-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4240899f1b840d44b892b2393e6a56aa
+      internalID: -367974975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Philbert_Death-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3cab33f6c338741906551355b75a82
+      internalID: -276368449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Philbert_Death-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66677a670be6d442a4c059c05a74437
+      internalID: 27736660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Philbert_Death-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fea7a1b4f7e5d46bfaeb3717e7606d
+      internalID: 1197907701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Philbert_Death-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727cc90dec0806e408a5b0724e78d103
+      internalID: 770496281
       vertices: []
       indices: 
       edges: []
@@ -303,15 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Philbert_Back_Jump-Sheet_8: -1474477255
-      Philbert_Back_Jump-Sheet_4: 1438388964
-      Philbert_Back_Jump-Sheet_2: -298715474
-      Philbert_Back_Jump-Sheet_6: 871074940
-      Philbert_Back_Jump-Sheet_1: 1494735958
-      Philbert_Back_Jump-Sheet_5: -1886619545
-      Philbert_Back_Jump-Sheet_7: -786648528
-      Philbert_Back_Jump-Sheet_0: -1312768168
-      Philbert_Back_Jump-Sheet_3: 507501511
+      Philbert_Death-Sheet_2: -276368449
+      Philbert_Death-Sheet_1: -367974975
+      Philbert_Death-Sheet_5: 770496281
+      Philbert_Death-Sheet_0: 1769354111
+      Philbert_Death-Sheet_3: 27736660
+      Philbert_Death-Sheet_4: 1197907701
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -29,16 +29,29 @@ public class PlayerMovement : MonoBehaviour
     private float jumpUpTimer = 0f;
     [SerializeField]
     private float timeToJumpUp;
+    private PlayerAnimator playerAnim;
+    private Vector2 directions = Vector2.zero;
+    public bool dead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAnim = GetComponentInChildren<PlayerAnimator>();
+    }
+
+    public void SetDead()
+    {
+        dead = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dead)
+        {
+            playerAnim.Die();
+            return;
+        }
         if (LaneManager.areLanesReady)
         {
             JumpUp();
@@ -80,6 +93,19 @@ public class PlayerMovement : MonoBehaviour
             dashTimer = 0f;
         }
         this.transform.Translate(sideMovement * Time.deltaTime * playerSpeed, Space.World);
+
+        if (sideMovement.z > 0)
+        {
+            directions.x = 1;
+        }
+        else if (sideMovement.z < 0)
+        {
+            directions.x = -1;
+        }
+        if (sideMovement.magnitude != 0)
+        {
+            playerAnim.Walk(directions.y == 1, directions.x == 1);
+        }
     }
 
     void FwdBwdMovement()
@@ -92,14 +118,18 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
+            directions.y = 1;
             index++;
             SetUpJump();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
+            directions.y = -1;
             index--;
             SetUpJump();
         }
+
+        
     }
 
     void SetUpJump()
@@ -113,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
                 jumping = true;
                 targetPosition = new Vector3(LaneManager.getLanePosition(index), 1, this.transform.position.z);
                 jumpScale = Mathf.Abs(targetPosition.x - transform.position.x);
+                playerAnim.Jump(directions.y == 1, directions.x == 1);
             }
     }
 
@@ -139,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpingUp = true;
             jumpUpTimer = 0f;
+            playerAnim.Jump(directions.y == 1, directions.x == 1);
         }
         if (jumpingUp)
         {
@@ -162,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Dash()
     {
+        playerAnim.Dash(directions.y == 1, directions.x == 1);
         dashTimer += Time.deltaTime;
         transform.Translate((facing * dashDistance * Time.deltaTime) / timeToDash, Space.World);
         if (dashTimer > timeToDash)

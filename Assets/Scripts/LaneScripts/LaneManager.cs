@@ -12,7 +12,11 @@ public class LaneManager : MonoBehaviour
 
     [SerializeField]
     private GameObject[] lanePrefabs;
+    [SerializeField]
+    private GameObject linesPrefab;
     public static bool areLanesReady = false;
+    [SerializeField]
+    private int groupNum;
 
 
     // Start is called before the first frame update
@@ -21,7 +25,7 @@ public class LaneManager : MonoBehaviour
         lanes = new List<Lane>();
         for (int i = 0; i < numLanes; i++)
         {
-            if (i % 3 == 0)
+            if (i % groupNum == 0)
             {
                 SpawnLane(i, LaneEnumerator.BlankLane);
             }
@@ -30,6 +34,7 @@ public class LaneManager : MonoBehaviour
                 SpawnLane(i, LaneEnumerator.DefaultLane);
             }
         }
+        AddLines();
         this.transform.position = new Vector3(spawnOffset, 0, 0);
         areLanesReady = true;
     }
@@ -52,6 +57,21 @@ public class LaneManager : MonoBehaviour
         }
         lanes.Add(laneComp);
         newLane.transform.SetParent(this.gameObject.transform);
+    }
+
+    public void AddLines()
+    {
+        Vector3 spawnPosition = Vector3.zero;
+        for (int i = 0; i < lanes.Count - 1; i++)
+        {
+            if (lanes[i].getLaneType() == LaneEnumerator.BlankLane) continue;
+            if (lanes[i + 1].getLaneType() != LaneEnumerator.BlankLane)
+            {
+                spawnPosition.x = lanes[i].getXPosition() + lanes[i].getLaneWidth() / 2;
+                GameObject newLines = Instantiate(linesPrefab, spawnPosition, Quaternion.identity);
+                newLines.transform.SetParent(this.gameObject.transform);
+            }
+        }
     }
 
     public static float getLanePosition(int index)

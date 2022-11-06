@@ -8,6 +8,8 @@ public class Lane : MonoBehaviour
     private LaneEnumerator laneType;
     [SerializeField]
     private float laneWidth;
+    [SerializeField]
+    private float laneSpeed;
 
     public float getXPosition()
     {
@@ -27,5 +29,15 @@ public class Lane : MonoBehaviour
     public LaneEnumerator getLaneType()
     {
         return laneType;
+    }
+
+    public float getLaneSpeed()
+    {
+        return laneSpeed;
+    }
+
+    public void setLaneSpeed(float newLaneSpeed)
+    {
+        laneSpeed = newLaneSpeed;
     }
 }
