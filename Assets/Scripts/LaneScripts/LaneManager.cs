@@ -17,6 +17,7 @@ public class LaneManager : MonoBehaviour
     public static bool areLanesReady = false;
     [SerializeField]
     private int groupNum;
+    private int laneDirection = -1;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class LaneManager : MonoBehaviour
             if (i % groupNum == 0)
             {
                 SpawnLane(i, LaneEnumerator.BlankLane);
+                laneDirection = -laneDirection;
             }
             else
             {
@@ -50,6 +52,10 @@ public class LaneManager : MonoBehaviour
         GameObject laneToCreate = lanePrefabs[(int)laneType];
         Vector3 spawnPosition = Vector3.zero;
         GameObject newLane = Instantiate(laneToCreate, spawnPosition, Quaternion.identity);
+        if (laneDirection != 1)
+        {
+            newLane.transform.Rotate(Vector3.up * 180);
+        }
         Lane laneComp = newLane.GetComponent<Lane>();
         if (index != 0)
         {
@@ -82,5 +88,20 @@ public class LaneManager : MonoBehaviour
     public static int getNumLanes()
     {
         return lanes.Count;
+    }
+
+    public static void SetLandSpeed(int index, float speed)
+    {
+        lanes[index].setLaneSpeed(speed);
+    }
+
+    public static void SpeedUpLane(int index, float speed, float acceleration)
+    {
+        lanes[index].SpeedUpTo(speed, acceleration);
+    }
+
+    public static float GetLaneSpeed(int index)
+    {
+        return lanes[index].getLaneSpeed();
     }
 }

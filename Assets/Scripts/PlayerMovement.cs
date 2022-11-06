@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         playerAnim = GetComponentInChildren<PlayerAnimator>();
     }
 
+    public int GetIndex()
+    {  
+        return index;
+    }
+
     public void SetDead()
     {
         dead = true;
@@ -93,7 +98,9 @@ public class PlayerMovement : MonoBehaviour
             dashTimer = 0f;
         }
         this.transform.Translate(sideMovement * Time.deltaTime * playerSpeed, Space.World);
-
+        Vector3 currPos = transform.position;
+        currPos.z = Mathf.Clamp(currPos.z, -30, 30);
+        transform.position = currPos;
         if (sideMovement.z > 0)
         {
             directions.x = 1;
@@ -134,9 +141,14 @@ public class PlayerMovement : MonoBehaviour
 
     void SetUpJump()
     {
-        if (index < 0 || index >= LaneManager.getNumLanes())
+        Vector2Int activeLanes = GameManager.GetActiveLanes();
+
+        if (index < activeLanes.x || index > activeLanes.y)
             {
-                index = Mathf.Clamp(index, 0, LaneManager.getNumLanes() - 1);
+                //index = Mathf.Clamp(index, 0, LaneManager.getNumLanes() - 1);
+                
+                index = Mathf.Clamp(index, activeLanes.x, activeLanes.y);
+                if (index >= LaneManager.getNumLanes()) index = LaneManager.getNumLanes() - 1;
             }
             else
             {

@@ -10,6 +10,8 @@ public class Lane : MonoBehaviour
     private float laneWidth;
     [SerializeField]
     private float laneSpeed;
+    private float targetLaneSpeed;
+    private float laneAcceleration;
 
     public float getXPosition()
     {
@@ -39,5 +41,22 @@ public class Lane : MonoBehaviour
     public void setLaneSpeed(float newLaneSpeed)
     {
         laneSpeed = newLaneSpeed;
+    }
+
+    public virtual void SpeedUpTo(float speed, float acceleration)
+    {
+        laneSpeed = Mathf.MoveTowards(laneSpeed, speed, acceleration);
+        laneAcceleration = acceleration;
+        targetLaneSpeed = speed;
+        Invoke(nameof(SpeedUpTo), .1f);
+    }
+
+    public void SpeedUpTo()
+    {
+        if (laneSpeed != targetLaneSpeed)
+        {
+            laneSpeed = Mathf.MoveTowards(laneSpeed, targetLaneSpeed, laneAcceleration);
+            Invoke(nameof(SpeedUpTo), .1f);
+        }
     }
 }

@@ -147,5 +147,5 @@ MonoBehaviour:
   laneSpeed: 6
   laneSpeedRange: {x: 6, y: 10}
   spawnRateRange: {x: 2, y: 8}
-  carObject: {fileID: 392748711584235459, guid: 35dbc4a38d6882640a632e5a5ffb604d, type: 3}
+  carObject: {fileID: 715777005014527600, guid: 27730890a81c8114390c50d0831ae03f, type: 3}
   carSpawnPoint: {fileID: 8476500219541081408}
