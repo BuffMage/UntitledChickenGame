@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerAnim = GetComponentInChildren<PlayerAnimator>();
+        index = 0;
     }
 
     public int GetIndex()
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Debug.Log("Dashing");
             stamina = Mathf.Clamp01(stamina - .35f);
-            StaminaBar.UpdateFillBar(stamina);
+            //StaminaBar.UpdateFillBar(stamina);
             dashing = true;
             dashTimer = 0f;
         }
@@ -224,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag.Equals("Respawn"))
         {
             stamina = Mathf.Clamp01(stamina + .5f);
-            StaminaBar.UpdateFillBar(stamina);
+            //StaminaBar.UpdateFillBar(stamina);
             Destroy(other.gameObject);
         }
 

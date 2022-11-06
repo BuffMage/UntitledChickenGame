@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
         if (player.GetIndex() == activeLanes.y)
         {
             activeLanes += Vector2Int.one * (activeLanes.y - activeLanes.x);
+        }
+        if (player.GetIndex() == LaneManager.getNumLanes() - 1)
+        {
+            SceneManager.LoadScene("Win Screen");
         }
     }
     public static Vector2Int GetActiveLanes()
