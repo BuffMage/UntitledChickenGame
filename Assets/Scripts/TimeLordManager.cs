@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TimeLordManager : MonoBehaviour
 {
-    private Vector2Int selectedLanes = new Vector2Int(-1, -1);
-    private Vector2 selectedLaneSpeeds;
-    private Vector2 originalSpeeds;
+    private int selectedLane = -1;
+    private float selectedLaneSpeed;
+    private float originalSpeed;
     [SerializeField]
     private float deceleration;
 
@@ -21,16 +21,107 @@ public class TimeLordManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Slash))
         {
-            if (selectedLanes.x == GameManager.GetActiveLanes().y - 1)
+            if (selectedLane == -1)
             {
-                LaneManager.SpeedUpLane(selectedLanes.x, originalSpeeds.x, .5f);
-                selectedLanes.x = -1;
+                selectedLane = GameManager.GetActiveLanes().y - 1;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else if (selectedLane != GameManager.GetActiveLanes().y - 1)
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = GameManager.GetActiveLanes().y - 1;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                selectedLanes.x = GameManager.GetActiveLanes().y - 1;
-                originalSpeeds.x = LaneManager.GetLaneSpeed(selectedLanes.x);
-                selectedLaneSpeeds.x = originalSpeeds.x;
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = -1;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Period))
+        {
+            if (selectedLane == -1)
+            {
+                selectedLane = GameManager.GetActiveLanes().y - 2;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else if (selectedLane != GameManager.GetActiveLanes().y - 2)
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = GameManager.GetActiveLanes().y - 2;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = -1;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            if (selectedLane == -1)
+            {
+                selectedLane = GameManager.GetActiveLanes().y - 3;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else if (selectedLane != GameManager.GetActiveLanes().y - 3)
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = GameManager.GetActiveLanes().y - 3;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = -1;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (selectedLane == -1)
+            {
+                selectedLane = GameManager.GetActiveLanes().y - 4;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else if (selectedLane != GameManager.GetActiveLanes().y - 4)
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = GameManager.GetActiveLanes().y - 4;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = -1;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (selectedLane == -1)
+            {
+                selectedLane = GameManager.GetActiveLanes().y - 5;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else if (selectedLane != GameManager.GetActiveLanes().y - 5)
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = GameManager.GetActiveLanes().y - 5;
+                originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
+                selectedLaneSpeed = originalSpeed;
+            }
+            else
+            {
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                selectedLane = -1;
             }
         }
         SlowLane();
@@ -39,11 +130,11 @@ public class TimeLordManager : MonoBehaviour
 
     void SlowLane()
     {
-        if (selectedLanes.x != -1)
+        if (selectedLane != -1)
         {
-            selectedLaneSpeeds.x -= deceleration * Time.deltaTime;
-            selectedLaneSpeeds.x = Mathf.Clamp(selectedLaneSpeeds.x, 0, originalSpeeds.x);
-            LaneManager.SetLandSpeed(selectedLanes.x, selectedLaneSpeeds.x);
+            selectedLaneSpeed -= deceleration * Time.deltaTime;
+            selectedLaneSpeed = Mathf.Clamp(selectedLaneSpeed, 0, originalSpeed);
+            LaneManager.SetLandSpeed(selectedLane, selectedLaneSpeed);
         }
     }
 

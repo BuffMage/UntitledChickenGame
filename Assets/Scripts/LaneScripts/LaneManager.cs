@@ -18,6 +18,8 @@ public class LaneManager : MonoBehaviour
     [SerializeField]
     private int groupNum;
     private int laneDirection = -1;
+    [SerializeField]
+    private GameObject staminaPrefab;
 
 
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class LaneManager : MonoBehaviour
             }
         }
         AddLines();
+        PlaceStamina();
         this.transform.position = new Vector3(spawnOffset, 0, 0);
         areLanesReady = true;
     }
@@ -103,5 +106,18 @@ public class LaneManager : MonoBehaviour
     public static float GetLaneSpeed(int index)
     {
         return lanes[index].getLaneSpeed();
+    }
+    
+    public void PlaceStamina()
+    {
+        Vector3 spawnPosition = Vector3.zero;
+        for (int i = 0; i < lanes.Count; i++)
+        {
+            spawnPosition.x = lanes[i].getXPosition();
+            spawnPosition.z = Random.Range(-30f, 30f);
+            spawnPosition.y = 1;
+            GameObject newObj = Instantiate(staminaPrefab, spawnPosition, Quaternion.identity);
+            newObj.transform.SetParent(lanes[i].transform);
+        }
     }
 }
