@@ -21,6 +21,12 @@ public class DefaultLane : Lane
     // Start is called before the first frame update
     void Start()
     {
+        float position = -30;
+        while (position < 30)
+        {
+            position += Random.Range(14, 25);
+            SpawnCar(position);
+        }
         Invoke("SpawnCar", Random.Range(spawnRateRange.x, spawnRateRange.y));
     }
 
@@ -28,6 +34,19 @@ public class DefaultLane : Lane
     void Update()
     {
 
+    }
+
+    public void SpawnCar(float position)
+    {
+        Vector3 newSpawnpoint = carSpawnPoint.position;
+        newSpawnpoint.z += position;
+
+        GameObject newCar = Instantiate(carObject, newSpawnpoint, this.transform.rotation);
+        DefaultCar carComp = newCar.GetComponent<DefaultCar>();
+        carComp.SetSpeed(getLaneSpeed());
+        carComp.transform.SetParent(this.gameObject.transform);
+        //Invoke("SpawnCar", Random.Range(spawnRateRange.x, spawnRateRange.y));
+        carComp.SetLane(this);
     }
 
     public void SpawnCar()
