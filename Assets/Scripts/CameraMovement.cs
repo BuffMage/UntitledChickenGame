@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.ResetLane();
         prevActiveLanes = GameManager.GetActiveLanes();
         lastPos = transform.position;
     }
@@ -38,6 +39,5 @@ public class CameraMovement : MonoBehaviour
         Vector3 newPos = Vector3.Slerp(lastPos, targetPos, cameraTimer);
         newPos.y = lastPos.y;
         transform.position = newPos;
-
     }
 }
