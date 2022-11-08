@@ -10,6 +10,9 @@ public class TimeLordManager : MonoBehaviour
     [SerializeField]
     private float deceleration;
 
+    [SerializeField]
+    private float acceleration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +32,14 @@ public class TimeLordManager : MonoBehaviour
             }
             else if (selectedLane != GameManager.GetActiveLanes().y - 1)
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = GameManager.GetActiveLanes().y - 1;
                 originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
                 selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = -1;
             }
         }
@@ -50,14 +53,14 @@ public class TimeLordManager : MonoBehaviour
             }
             else if (selectedLane != GameManager.GetActiveLanes().y - 2)
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = GameManager.GetActiveLanes().y - 2;
                 originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
                 selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = -1;
             }
         }
@@ -71,14 +74,14 @@ public class TimeLordManager : MonoBehaviour
             }
             else if (selectedLane != GameManager.GetActiveLanes().y - 3)
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = GameManager.GetActiveLanes().y - 3;
                 originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
                 selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = -1;
             }
         }
@@ -92,14 +95,14 @@ public class TimeLordManager : MonoBehaviour
             }
             else if (selectedLane != GameManager.GetActiveLanes().y - 4)
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = GameManager.GetActiveLanes().y - 4;
                 originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
                 selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = -1;
             }
         }
@@ -113,14 +116,14 @@ public class TimeLordManager : MonoBehaviour
             }
             else if (selectedLane != GameManager.GetActiveLanes().y - 5)
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = GameManager.GetActiveLanes().y - 5;
                 originalSpeed = LaneManager.GetLaneSpeed(selectedLane);
                 selectedLaneSpeed = originalSpeed;
             }
             else
             {
-                LaneManager.SpeedUpLane(selectedLane, originalSpeed, 2f);
+                LaneManager.SpeedUpLane(selectedLane, originalSpeed, acceleration);
                 selectedLane = -1;
             }
         }

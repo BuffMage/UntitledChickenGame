@@ -1249,7 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d26fd7f1b348c4ca495c1cd91f52d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deceleration: 8
+  deceleration: 32
+  acceleration: 4
 --- !u!4 &1642489514
 Transform:
   m_ObjectHideFlags: 0
